@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import useSticky from "./hooks/useSticky.js"
+import Welcome from "./components/Header/Welcome"
+import Navbar from "./components/Header/Navbar"
+import About from './components/Header/About'
+import Footer from './components/Footer/Footer'
 
 function App() {
+  const { isSticky, element } = useSticky()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Navbar sticky={isSticky} />
+      <Welcome element={element} />
+      <About />
+      <About />
+      <About />
+      <Footer />
+    </>
+  )
 }
 
-export default App;
+export default App
